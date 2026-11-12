@@ -17,6 +17,10 @@ package org.thunderdog.challegram.component.chat;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.os.Build;
+// region @MadeByLLM("gpt-6-astra", id = "forum-topics", ref = "PR #1095")
+import android.os.Bundle;
+import android.view.accessibility.AccessibilityNodeInfo;
+// endregion
 import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
 import android.view.View;
@@ -27,6 +31,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+// region @MadeByLLM("gpt-6-astra", id = "forum-topics", ref = "PR #1095")
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+// endregion
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.drinkless.tdlib.TdApi;
@@ -108,6 +115,9 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
   private final ComplexReceiver reactionAvatarsReceiver;
   private final ComplexReceiver emojiStatusReceiver;
   private final ComplexReceiver reactionsComplexReceiver, textMediaReceiver, replyTextMediaReceiver;
+  // region @MadeByLLM("gpt-6-astra", id = "forum-topics", ref = "PR #1095")
+  private final ComplexReceiver forumTopicReceiver;
+  // endregion
   private final DoubleImageReceiver replyReceiver;
   private final RefreshRateLimiter refreshRateLimiter, highRefreshRateLimiter;
   private ComplexReceiver footerTextMediaReceiver;
@@ -139,6 +149,9 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
       .setUpdateListener(highRefreshRateLimiter);
     textMediaReceiver = new ComplexReceiver()
       .setUpdateListener(refreshRateLimiter);
+    // region @MadeByLLM("gpt-6-astra", id = "forum-topics", ref = "PR #1095")
+    forumTopicReceiver = new ComplexReceiver().setUpdateListener(refreshRateLimiter);
+    // endregion
     emojiStatusReceiver = new ComplexReceiver()
       .setUpdateListener(refreshRateLimiter);
     replyTextMediaReceiver = new ComplexReceiver()
@@ -184,6 +197,9 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
     gifReceiver.destroy();
     reactionsComplexReceiver.performDestroy();
     textMediaReceiver.performDestroy();
+    // region @MadeByLLM("gpt-6-astra", id = "forum-topics", ref = "PR #1095")
+    forumTopicReceiver.performDestroy();
+    // endregion
     emojiStatusReceiver.performDestroy();
     if (contentReceiver != null) {
       contentReceiver.destroy();
@@ -309,11 +325,23 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
 
     message.resetTransformState();
     message.requestAvatar(avatarReceiver);
+    // region @MadeByLLM("gpt-6-astra", id = "forum-topics", ref = "PR #1095")
+    // A forum author avatar may be inside the header instead of in the outer gutter.
+    // Rebinding an equally tall row does not necessarily trigger onMeasure.
+    message.layoutAvatar(this, avatarReceiver);
+    // endregion
     message.requestReactions(reactionsComplexReceiver);
     message.requestCommentsResources(avatarsReceiver, false);
     message.requestGiveawayAvatars(giveawayAvatarsReceiver, false);
     message.requestReactionsResources(reactionAvatarsReceiver, false);
     message.requestAllTextMedia(this);
+    // region @MadeByLLM("gpt-6-astra", id = "forum-topics", ref = "PR #1095")
+    setFocusable(message.hasForumTopicButton());
+    setImportantForAccessibility(
+      message.hasForumTopicButton() ? IMPORTANT_FOR_ACCESSIBILITY_YES
+        : IMPORTANT_FOR_ACCESSIBILITY_AUTO
+    );
+    // endregion
 
     if ((flags & FLAG_USE_COMMON_RECEIVER) != 0) {
       previewReceiver.setRadius(message.getImageContentRadius(true));
@@ -429,6 +457,41 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
     msg.draw(this, c, avatarReceiver, replyReceiver, replyTextMediaReceiver, previewReceiver, contentReceiver, gifReceiver, complexReceiver);
   }
 
+  // region @MadeByLLM("gpt-6-astra", id = "forum-topics", ref = "PR #1095")
+  public ComplexReceiver getForumTopicReceiver () {
+    return forumTopicReceiver;
+  }
+
+  @Override public void onInitializeAccessibilityNodeInfo (AccessibilityNodeInfo info) {
+    super.onInitializeAccessibilityNodeInfo(info);
+    if (msg != null && msg.hasForumTopicButton()) {
+      String topic = Lang.getString(R.string.ForumOpenTopicAction, msg.forumTopicLabel());
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP &&
+        !msg.messagesController().inSelectMode()) {
+        AccessibilityNodeInfoCompat.wrap(info).addAction(
+          new AccessibilityNodeInfoCompat.AccessibilityActionCompat(R.id.btn_openForumTopic, topic)
+        );
+      }
+      // region @MadeByLLM("gpt-6-astra", id = "forum-topics", ref = "C2-L10N-02")
+      if (info.getContentDescription() == null) {
+        info.setContentDescription(Lang.getString(R.string.format_forumMessageAccessibility, topic,
+          ContentPreview.getChatListPreview(msg.tdlib(), msg.getChatId(), msg.getMessage(), true)
+            .buildText(false)));
+      }
+      // endregion
+    }
+  }
+
+  @Override public boolean performAccessibilityAction (int action, Bundle arguments) {
+    if (action == R.id.btn_openForumTopic && msg != null && msg.hasForumTopicButton() &&
+      !msg.messagesController().inSelectMode()) {
+      msg.openForumTopic();
+      return true;
+    }
+    return super.performAccessibilityAction(action, arguments);
+  }
+
+  // endregion
   public AvatarReceiver getAvatarReceiver () {
     return avatarReceiver;
   }
@@ -495,6 +558,9 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
       gifReceiver.attach();
       reactionsComplexReceiver.attach();
       textMediaReceiver.attach();
+      // region @MadeByLLM("gpt-6-astra", id = "forum-topics", ref = "PR #1095")
+      forumTopicReceiver.attach();
+      // endregion
       emojiStatusReceiver.attach();
       replyReceiver.attach();
       replyTextMediaReceiver.attach();
@@ -518,6 +584,9 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
       gifReceiver.detach();
       reactionsComplexReceiver.detach();
       textMediaReceiver.detach();
+      // region @MadeByLLM("gpt-6-astra", id = "forum-topics", ref = "PR #1095")
+      forumTopicReceiver.detach();
+      // endregion
       emojiStatusReceiver.detach();
       replyReceiver.detach();
       replyTextMediaReceiver.detach();
@@ -641,7 +710,7 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
         ids.append(R.id.btn_chatTranslateOff);
         strings.append(R.string.TranslateOff);
         icons.append(R.drawable.baseline_translate_off_24);
-      } else if (!isMore && msg.isTranslatable() && msg.translationStyleMode() != Settings.TRANSLATE_MODE_NONE) {
+      } else if (!isMore && msg.isTranslatable() && msg.canTranslateHere()) {
         ids.append(R.id.btn_chatTranslate);
         strings.append(R.string.Translate);
         icons.append(R.drawable.baseline_translate_24);
@@ -695,7 +764,8 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
       //noinspection SwitchIntDef
       switch (content.getConstructor()) {
         case TdApi.MessagePoll.CONSTRUCTOR: {
-          TdApi.Poll poll = ((TdApi.MessagePoll) content).poll;
+          TdApi.MessagePoll pollContent = (TdApi.MessagePoll) content;
+          TdApi.Poll poll = pollContent.poll;
           if (!poll.isClosed) {
             boolean isQuiz = poll.type.getConstructor() == TdApi.PollTypeQuiz.CONSTRUCTOR;
             if (TD.canRetractVote(poll)) {
@@ -707,6 +777,18 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
               ids.append(R.id.btn_messagePollStop);
               icons.append(isQuiz ? R.drawable.baseline_help_24 : R.drawable.baseline_poll_24);
               strings.append(isQuiz ? R.string.StopQuiz : R.string.StopPoll);
+              if (pollContent.canAddOption) {
+                // TDLib tells whether the poll still accepts another option
+                ids.append(R.id.btn_messagePollAddOption);
+                icons.append(R.drawable.baseline_add_24);
+                strings.append(R.string.AddPollOption);
+              }
+              if (poll.options.length > 2) {
+                // TDLib keeps polls at two options minimum, and the server rejects anything below that
+                ids.append(R.id.btn_messagePollDeleteOption);
+                icons.append(R.drawable.baseline_remove_circle_24);
+                strings.append(R.string.RemovePollOption);
+              }
             }
           }
           break;
@@ -883,6 +965,12 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
       icons.append(R.drawable.baseline_link_24);
     }
 
+    if (!isMore && msg.canGetEmbeddingCode()) {
+      ids.append(R.id.btn_messageCopyEmbedCode);
+      strings.append(R.string.CopyEmbeddingCode);
+      icons.append(R.drawable.baseline_code_24);
+    }
+
     if (!isMore && msg.canBeSaved() && msg.canCopyText()) {
       if (msg.isTranslated()) {
         ids.append(R.id.btn_copyTranslation);
@@ -898,7 +986,7 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
       ids.append(R.id.btn_chatTranslateOff);
       strings.append(R.string.TranslateOff);
       icons.append(R.drawable.baseline_translate_off_24);
-    } else if (!isMore && msg.isTranslatable() && msg.translationStyleMode() != Settings.TRANSLATE_MODE_NONE) {
+    } else if (!isMore && msg.isTranslatable() && msg.canTranslateHere()) {
       ids.append(R.id.btn_chatTranslate);
       strings.append(R.string.Translate);
       icons.append(R.drawable.baseline_translate_24);
@@ -1080,6 +1168,12 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
       ids.append(R.id.btn_messageDelete);
       strings.append(R.string.Delete);
       icons.append(R.drawable.baseline_delete_24);
+    }
+
+    if (msg.isRepliesChat() && !msg.isOutgoing()) {
+      ids.append(R.id.btn_messageBlockSenderFromReplies);
+      strings.append(R.string.BlockUser);
+      icons.append(R.drawable.baseline_block_24);
     }
 
     // Admin tools inside "More"
@@ -1281,7 +1375,7 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
         colors.append(ViewController.OptionColor.NORMAL);
       }
 
-      if (msg.isTranslatable() && msg.translationStyleMode() != Settings.TRANSLATE_MODE_NONE) {
+      if (msg.isTranslatable() && msg.canTranslateHere()) {
         ids.append(R.id.btn_chatTranslate);
         strings.append(R.string.Translate);
         icons.append(R.drawable.baseline_translate_24);

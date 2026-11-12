@@ -1,5 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+  <!-- region @MadeByLLM("gpt-6-astra", id = "forum-topics", ref = "PR #1095") -->
+  <!-- Copy edits and resource reuse: @MadeByLLM("gpt-6-astra", id = "forum-topics", ref = "C2-L10N-02"). Original feature authorship above is retained. -->
+  <string name="ForumEditorNew">New Topic</string>
+  <string name="ForumEditorEdit">Edit Topic</string>
+  <string name="ForumEditorCreate">Create</string>
+  <string name="ForumEditorRetry">Retry</string>
+  <string name="ForumEditorCard">Choose a topic name and icon</string>
+  <string name="ForumEditorNameHint">What do you want to discuss?</string>
+  <string name="ForumEditorIconHeading">Choose a topic icon</string>
+  <string name="ForumEditorDefaults">Topic icons</string>
+  <string name="ForumEditorSearch">Search emoji</string>
+  <string name="ForumEditorRegular">Use ordinary icon</string>
+  <string name="ForumEditorPreview">Topic icon preview</string>
+  <string name="ForumEditorSelected">%1$s, selected</string>
+  <string name="ForumEditorLocked">%1$s, Premium required</string>
+  <string name="ForumEditorCustomEmoji">Custom emoji</string>
+  <string name="ForumEditorEmptyName">Enter a topic name.</string>
+  <string name="ForumEditorLongName">Use at most 128 characters.</string>
+  <string name="ForumEditorNameCount">%1$d / 128</string>
+  <string name="ForumEditorGeneralHint">The General topic icon cannot be changed.</string>
+  <string name="ForumEditorColorLocked">The original icon color cannot be changed after creation.</string>
+  <string name="ForumEditorEditHint">%1$s\n%2$s</string>
+  <string name="ForumEditorColorInvalid">Choose one of the available icon colors.</string>
+  <string name="ForumEditorPremiumHint">Topic icons are available to everyone. Other custom emoji require Premium.</string>
+  <string name="ForumEditorPremiumRequired">This emoji requires Premium. Choose a topic icon or the ordinary icon.</string>
+  <string name="ForumEditorIconLoading">Checking available topic icons…</string>
+  <string name="ForumEditorEmojiLoading">Loading emoji…</string>
+  <string name="ForumEditorEmojiEmpty">No emoji found. Try another search or set.</string>
+  <string name="ForumEditorEmojiError">Could not load emoji. Try again.</string>
+  <string name="ForumEditorEmojiPartial">Some emoji sections could not be loaded. Retry to load them.</string>
+  <string name="ForumEditorUnavailable">This topic is unavailable or you no longer have permission to edit it.</string>
+  <string name="ForumEditorCreateUnavailable">You no longer have permission to create topics here.</string>
+  <string name="ForumEditorLoadError">The topic could not be loaded. Your changes are preserved.</string>
+  <string name="ForumEditorServerError">Could not save the topic. Your changes are preserved. Try again when connected.</string>
+  <string name="ForumEditorPermissionError">The server rejected this change. Check your permissions before trying again.</string>
+  <string name="ForumEditorDiscardTitle">Discard changes?</string>
+  <string name="ForumEditorDiscardText">Your changes to this topic will be lost.</string>
+  <string name="ForumEditorKeepEditing">Keep editing</string>
+  <string name="ForumEditorSendingBack">Your changes are still being saved. Please wait.</string>
+  <string name="ForumEditorUnknown">We couldn’t confirm whether your topic was created. Check the topic list before creating it again; the original request may still finish.</string>
+  <string name="ForumEditorCheckResult">Check result</string>
+  <string name="ForumEditorChecking">Checking existing topics…</string>
+  <string name="ForumEditorCheckFailed">Could not check whether the topic was created. Check your connection and try checking again. This won’t create another topic.</string>
+  <string name="ForumEditorNoMatch">No matching topic was found yet. The original request may still finish. Check again later before creating another topic.</string>
+  <string name="ForumEditorMatches">Check the topics below before creating another one. Some may be older topics with the same name.</string>
+  <string name="ForumEditorOpenMatch">Open matching topic %1$d</string>
+  <string name="ForumEditorUnknownLeave">The topic may still be created after you leave. Leaving won’t cancel the request. Check the topic list before creating it again.</string>
+  <string name="ForumEditorLeave">Return</string>
+  <string name="ForumEditorRestoredEdit">Your changes were restored. Check the current topic before saving again.</string>
+  <string name="ForumRailMuted">Notifications muted</string>
+  <string name="ForumRailUnread">Unread messages: %1$d</string>
+  <string name="ForumRailUnreadTopics">Unread topics: %1$d</string>
+  <string name="ForumProfileMore">More topic actions</string>
+  <string name="ForumProfileGroupLink">%1$s ›</string>
+  <string name="ForumProfileSettingValue">%1$s\n%2$s</string>
+  <string name="ForumProfileUnavailable">This topic is no longer available.</string>
+  <string name="ForumProfileTopicLink">Topic link</string>
+  <string name="ForumProfileLinkHint">A topic link does not grant access to a private group.</string>
+  <string name="ForumProfileMediaLoading">Loading shared content…</string>
+  <string name="ForumProfileMediaEmpty">No shared content in this topic yet.</string>
+  <string name="ForumProfileMediaRetry">Could not load some shared content. Tap to retry.</string>
+  <string name="ForumProfileMediaOffline">Shared content is unavailable offline. Tap to retry when connected.</string>
+  <string name="ForumProfileMediaUnknown">Could not check this topic’s shared content. Tap to retry.</string>
+  <string name="ForumProfilePolls">Polls</string>
+  <string name="ForumProfilePollOpen">Open poll</string>
+  <string name="ForumProfilePollClosed">Closed poll</string>
+  <string name="ForumProfilePollVoters">Voters: %1$d</string>
+  <string name="ForumProfilePollCount">Polls: %1$d</string>
+  <!-- region @MadeByLLM("gpt-6-astra", id = "forum-topics", ref = "L10N-01") -->
+  <!-- Poll state, formatted voter count. Translators may change order and punctuation. -->
+  <string name="format_forumPollSummary">%1$s · %2$s</string>
+  <!-- Poll question, poll state, formatted voter count; spoken description. -->
+  <string name="format_forumPollAccessibility">%1$s. %2$s. %3$s</string>
+  <!-- endregion -->
+  <!-- region @MadeByLLM("gpt-6-astra", id = "forum-topics", ref = "C2-L10N-02") -->
+  <!-- Group title, closed-topic status. Translators may change order and punctuation. -->
+  <string name="format_forumClosedTopicSubtitle">%1$s · %2$s</string>
+  <!-- Open-topic action label, message preview; spoken fallback description. -->
+  <string name="format_forumMessageAccessibility">%1$s. %2$s</string>
+  <!-- endregion -->
+  <string name="ForumProfileDeleteGroup">Delete group for everyone</string>
+  <string name="ForumProfileDeleteGroupConfirm">Delete “%1$s” and all its messages for everyone? This deletes the entire group, not just this topic.</string>
+  <string name="ForumProfileDeleteTopicConfirm">Delete topic “%1$s” and all its messages? Other topics in “%2$s” will not be deleted.</string>
+  <string name="ForumProfileGeneralHint">General cannot be deleted as an ordinary topic.</string>
+  <string name="ForumProfileEnabled">Enabled for this topic</string>
+  <string name="ForumProfileDisabled">Disabled for this topic</string>
+  <string name="ForumProfilePinnedNotifications">Pinned message notifications</string>
+  <string name="ForumProfileMentionNotifications">Mention notifications</string>
+  <string name="ForumProfileSound">Notification sound</string>
+  <string name="ForumProfileSilent">No sound</string>
+  <string name="ForumProfileSettingsHint">These settings apply only to this topic. By default, it uses the group’s notification settings.</string>
+  <string name="ForumProfileDuration">Muted for %1$s</string>
+  <string name="ForumDeliveryPending">Sending</string>
+  <string name="ForumDeliveryFailed">Message failed to send</string>
+  <string name="ForumDeliverySent">Sent, not yet read</string>
+  <string name="ForumDeliveryRead">Read by recipient</string>
+  <string name="ForumSelectionMute">Mute topics</string>
+  <string name="ForumSelectionUnmute">Unmute topics</string>
+  <string name="ForumSelectionLimit">Selection limit: %1$d</string>
+  <string name="ForumSelectionProgress">Completed: %1$d / %2$d</string>
+  <!-- Formatted number of selected topics. The confirmed topic names follow this text. -->
+  <string name="ForumSelectionDeleteConfirm_one">Permanently delete %1$s selected topic and all its messages?\n\nThis cannot be undone. Other topics will not be changed.</string>
+  <string name="ForumSelectionDeleteConfirm_other">Permanently delete %1$s selected topics and all their messages?\n\nThis cannot be undone. Other topics will not be changed.</string>
+  <string name="ForumSelectionClearConfirm">Permanently clear all messages in General? The topic itself will be kept.\n\nThis cannot be undone. Other topics will not be changed.</string>
+  <string name="ForumSelectionRetryFailed">Retry failed actions</string>
+  <string name="ForumSelectionUncertain">Could not confirm the result. Refresh the topic list and check which changes were applied. This action won’t be repeated automatically.</string>
+  <string name="ForumSelectionPinsUnavailable">Could not verify the full pinned-topic order. Refresh and try again.</string>
+  <string name="ForumSelectionBusy">Please wait for the current topic action to finish.</string>
+  <string name="ForumSelectionActions">Selected topics</string>
+  <string name="ForumTabsFinishAction">Finish editing, sending or attaching your message before switching topics.</string>
+  <string name="ForumTabsLabel">Forum topic tabs</string>
+  <string name="ForumTabsAll">All</string>
+  <string name="ForumTabsAllDescription">All topics</string>
+  <string name="ForumTabsSelected">Selected</string>
+  <string name="ForumTabsMoveTop">Move topic tabs to the top</string>
+  <string name="ForumTabsMoveStart">Move topic tabs to the side</string>
+  <string name="ForumTabsMoveBottom">Move topic tabs to the bottom</string>
+  <string name="ForumCreateTopic">Create topic</string>
+  <string name="ForumShowTopics">View as topics</string>
+  <string name="ForumShowAllMessages">View all messages</string>
+  <string name="ForumCopyTopicLink">Copy topic link</string>
+  <string name="ForumOpenTopicAction">Open topic: %1$s</string>
+  <string name="ForumTopicActions">Topic actions</string>
+  <string name="ForumCancelTopicReply">Cancel topic reply</string>
+  <string name="ForumMessageInTopic">Message in %1$s</string>
+  <string name="ForumReadMentions">Mark topic mentions as read</string>
+  <string name="ForumReadReactions">Mark topic reactions as read</string>
+  <string name="ForumReadPollVotes">Mark topic poll votes as read</string>
+  <string name="ForumUnreadPollVotes">Unread poll votes: %1$d — show next</string>
+  <string name="ForumNoUnreadPollVotes">No unread poll votes in this topic.</string>
+  <string name="ForumGroupProfile">Group profile</string>
+  <string name="ForumEditTopic">Edit topic</string>
+  <string name="ForumColorBlue">Blue</string>
+  <string name="ForumColorYellow">Yellow</string>
+  <string name="ForumColorPurple">Purple</string>
+  <string name="ForumColorGreen">Green</string>
+  <string name="ForumColorPink">Pink</string>
+  <string name="ForumColorRed">Red</string>
+  <string name="ForumSaving">Saving…</string>
+  <string name="ForumActionUnavailable">This action is no longer available. Your permissions or the topic may have changed. Refresh and try again.</string>
+  <string name="ForumCloseTopic">Close topic</string>
+  <string name="ForumReopenTopic">Reopen topic</string>
+  <string name="ForumHideGeneral">Hide and close General</string>
+  <string name="ForumShowGeneral">Show General (keep closed)</string>
+  <string name="ForumPinTopic">Pin topic</string>
+  <string name="ForumUnpinTopic">Unpin topic</string>
+  <string name="ForumMovePinUp">Move pinned topic up</string>
+  <string name="ForumMovePinDown">Move pinned topic down</string>
+  <string name="ForumPinLimit">Pinned topic limit: %1$d. Unpin a topic first.</string>
+  <string name="ForumPinAtEdge">The topic is already at this end of the pinned list, or is no longer pinned.</string>
+  <string name="ForumDeleteTopic">Delete topic</string>
+  <string name="ForumClearGeneral">Clear General history</string>
+  <string name="ForumNotifications">Topic notifications</string>
+  <string name="ForumNotificationsState">Topic notifications · %1$s</string>
+  <string name="format_forumPreview">%1$s: %2$s</string>
+  <string name="ForumTopicAccessibility">%1$s. %2$s. %3$s. %4$s. %5$s</string>
+  <string name="ForumNotificationsDefault">Use group settings</string>
+  <string name="ForumNotificationsOn">Always notify</string>
+  <string name="ForumNotificationsMuted">Muted</string>
+  <string name="ForumMuteHour">Mute for 1 hour</string>
+  <string name="ForumMuteDay">Mute for 1 day</string>
+  <string name="ForumRefresh">Refresh topics</string>
+  <string name="ForumTopicTitle">Topic</string>
+  <string name="ForumChatTopics">Topics</string>
+  <string name="ForumGeneral">General</string>
+  <string name="ForumPinned">Pinned</string>
+  <string name="ForumHidden">Hidden</string>
+  <string name="ForumSearchTopics">Search topics</string>
+  <string name="ForumTopicsLoading">Loading topics…</string>
+  <string name="ForumTopicsEmpty">No topics found</string>
+  <string name="ForumTopicsLoadFailed">Could not load topics. Tap to retry.</string>
+  <string name="ForumTopicsStale">Showing saved topics. Tap to refresh.</string>
+  <string name="ForumUnreadCounts">Unread messages: %1$d; mentions: %2$d; reactions: %3$d; poll votes: %4$d</string>
+  <string name="ForumTopicLoading">Loading topic…</string>
+  <string name="ForumTopicClosed">Topic closed</string>
+  <string name="ForumTopicCreated">Topic created</string>
+  <string name="ForumTopicUpdated">Topic updated</string>
+  <string name="ForumTopicReopened">Topic reopened</string>
+  <string name="ForumGeneralHidden">General topic hidden</string>
+  <string name="ForumGeneralShown">General topic shown</string>
+  <string name="ForumTopicUnavailable">Topic unavailable</string>
+  <string name="ForumTopicLoadFailed">Could not load this topic. Tap to retry.</string>
+  <!-- endregion -->
+  <string name="ForumChatTopicsInfo">Turn this on to organize the group into separate topics.</string>
+  <string name="RemoveSenderReactions">Remove reactions on this message</string>
+  <string name="RemoveAllSenderReactions">Remove recent reactions in this chat</string>
+  <string name="RemoveAllSenderReactionsConfirm">Remove all recent reactions left by this user in this chat?</string>
+  <string name="ReportSenderReactions">Report reactions to moderators</string>
+  <string name="ReportSenderReactionsConfirm">Report the reactions left by this user on this message to Telegram moderators?</string>
   <string name="language_continueInLanguage">Continue in English</string>
 
   <string name="Page1Title">Telegram X</string>
@@ -496,6 +685,15 @@
   <string name="CopiedPeerId">Peer ID has been copied to the clipboard</string>
   <string name="CopiedUsername">Username has been copied to the clipboard</string>
   <string name="CopiedLink">Link has been copied to the clipboard</string>
+  <string name="CopyBoostLink">Copy boost link</string>
+  <string name="BoostUnrestrictTitle">Boosts to ignore restrictions</string>
+  <string name="BoostUnrestrictDisabled">Disabled</string>
+  <string name="BoostUnrestrictInfo">Users who boosted this chat at least the selected number of times will ignore slow mode and chat permission restrictions.</string>
+  <string name="GroupStickerSet">Sticker Set</string>
+  <string name="StickerSetDisabled">Not selected</string>
+  <string name="GroupStickerSetInfo">Stickers from the selected set are automatically installed for all members of this group.</string>
+  <string name="CustomEmojiSet">Custom Emoji Pack</string>
+  <string name="CustomEmojiSetInfo">Emojis from the selected pack are available to all members of this channel.</string>
   <string name="CopiedLinkPrivate">Link has been copied to the clipboard. It works only for members of this chat.</string>
   <string name="CopiedText">Text has been copied to the clipboard</string>
   <string name="CopiedDisplayName">Display name has been copied to the clipboard</string>
@@ -545,6 +743,10 @@
   <string name="DeletePhoto">Remove photo</string>
   <string name="ClearHistory">Clear history</string>
   <string name="ClearHistoryAll">Clear history for everyone</string>
+  <string name="ClearHistoryByDateRange">By date range</string>
+  <string name="ClearHistoryFrom">From date</string>
+  <string name="ClearHistoryTo">To date</string>
+  <string name="ClearHistoryByDateConfirm">Delete messages between %1$s and %2$s? Messages sent in the last 30 seconds are kept, and this cannot be undone.</string>
   <string name="ClearChannel">Delete all messages</string>
   <string name="ClearSavedMessages">Delete all Saved Messages</string>
   <string name="Cancel">Cancel</string>
@@ -597,6 +799,7 @@
   <string name="ChannelPublicInfo">Public channels can be found in search, anyone can join them.</string>
   <string name="ChannelUsernameHelp">If you set a public link, other people will be able to find and join your channel.\n\nYou can use a–z, 0–9 and underscores.\nMinimum length is 5 characters.</string>
   <string name="DirectMessages">Direct Messages</string>
+  <string name="DirectMessagesInfo">Messages your subscribers send to you are collected in a separate group.</string>
   <string name="ChannelPrivate">Private Channel</string>
   <string name="ChannelPrivateInfo">Private channels can only be joined via invite link.</string>
   <string name="ChannelPrivateLinkHelp">People can join your channel by following this link. You can revoke the link at any time.</string>
@@ -610,6 +813,7 @@
   <string name="CopyCoordinates">Copy coordinates</string>
   <string name="CopiedCoordinates">Coordinates have been copied to the clipboard</string>
   <string name="CopyLink">Copy link</string>
+  <string name="CopyEmbeddingCode">Copy embedding code</string>
   <string name="CopyDisplayName">Copy display name</string>
   <string name="Search">Search</string>
   <string name="NoChats">You have no chats</string>
@@ -768,6 +972,8 @@
   <string name="ChannelSignMessages">Sign Messages</string>
   <string name="ChannelShowAuthors">Show Authors\' Profiles</string>
   <string name="ApproveNewMembers">Approve New Members</string>
+  <string name="JoinToSendMessages">Join Before Sending</string>
+  <string name="JoinToSendMessagesInfo">Users must join the group before they can send messages</string>
   <string name="ApproveNewMembersInfo">Turn this on if you want new members to join only after they are approved by an admin.</string>
   <string name="RestrictSaving">Restrict Saving Content</string>
   <string name="RestrictSavingBotInfo">Copying or forwarding messages from this bot is restricted.</string>
@@ -962,6 +1168,9 @@
   <string name="TimerInstant">Immediately</string>
   <string name="Chats">Chats</string>
   <string name="Birthdate">Birthday</string>
+  <string name="UserNote">Note</string>
+  <string name="UserNoteHint">Note about this contact</string>
+  <string name="UserNoteDescription">Only you can see this note.</string>
   <string name="Notifications">Notifications</string>
   <string name="NotificationsEnabled">Enabled</string>
   <string name="NotificationsEnabledHint">Enabled (%1$s)</string>
@@ -978,6 +1187,8 @@
   <string name="InGroups">In Groups</string>
   <string name="InChannels">In Channels</string>
   <string name="AutomaticMediaDownload">Automatic media download</string>
+  <string name="AutosaveMedia">Automatically save media</string>
+  <string name="AutosaveMediaInfo">Photos and videos received in these chats are also saved to your Saved Messages.</string>
   <string name="Advanced">Advanced</string>
   <string name="Never">Never</string>
   <string name="WhenUsingRoaming">When switching to roaming</string>
@@ -1132,6 +1343,8 @@
   <string name="MasksHint">In future versions, you will be able to add masks to photos and videos you send.</string>
   <string name="Trending">Trending</string>
   <string name="Archived">Archived</string>
+  <string name="Owned">My Packs</string>
+  <string name="NoOwnedPacks">You haven\'t created any packs yet</string>
   <string name="Masks">Masks</string>
   <string name="StickersHide">Archive</string>
   <string name="XOnlyIfSilent">%1$s (only if silent)</string>
@@ -1436,6 +1649,7 @@
   <string name="ActionChatRemovedFromCommunity">This chat was removed from community</string>
 
   <string name="ActionSharingRequestExpired">Sharing request has expired</string>
+  <string name="AllowSharingQuestion">Allow members to copy, save and forward content in this chat?</string>
   <string name="ActionSharingRequestOut">You suggested to enable sharing in this chat</string>
   <string name="ActionSharingRequest">%1$s would like to enable sharing in this chat</string>
   <string name="ActionSharingEnabled">%1$s enabled sharing in this chat</string>
@@ -1586,6 +1800,9 @@
   <string name="RenameBot">Edit bot name</string>
   <string name="RenameBotHint">**Warning**: this will update the default bot name for **all users**.</string>
   <string name="Themes">Themes</string>
+  <string name="ChatTheme">Chat Theme</string>
+  <string name="ChatColor">Chat Color</string>
+  <string name="ProfileColor">Profile Color</string>
   <string name="ThemeSettings">Themes and Chats</string>
   <string name="Tweaks">Interface Options</string>
   <string name="TweakSettings">Interface</string>
@@ -1702,6 +1919,17 @@
   <string name="RemoveStickerSet">Remove sticker set %1$s?</string>
   <string name="RemoveEmojiSet">Remove emoji pack %1$s?</string>
   <string name="RemoveStickerSetAction">Remove</string>
+  <string name="RemoveSticker">Remove sticker</string>
+  <string name="RemoveStickerConfirm">Remove this sticker from the set?</string>
+  <string name="MoveStickerToStart">Move to beginning</string>
+  <string name="MoveStickerToEnd">Move to end</string>
+  <string name="RenamePack">Rename pack</string>
+  <string name="RenamePackHint">Pack name</string>
+  <string name="RenamePackDescription">The name is visible to everyone who sees these stickers.</string>
+  <string name="StickerEmojis">Emojis</string>
+  <string name="StickerEmojisHint">Emojis for this sticker</string>
+  <string name="StickerEmojisDescription">Separate the emojis with spaces. Up to 20 emojis.</string>
+  <string name="DeletePackConfirm">Delete this pack? All of its stickers will be removed for everyone.</string>
   <string name="DeletePack">Delete pack</string>
   <string name="AddPack">Add pack</string>
   <string name="DeleteArchivedPack">Delete from archive</string>
@@ -1788,6 +2016,7 @@
   <string name="RingtoneSystemDefault">System Default</string>
   <string name="Calls">Calls</string>
   <string name="Allow">Allow</string>
+  <string name="DontAllow">Don\'t allow</string>
   <string name="ContactAdded">Contact added</string>
   <string name="SuggestInvitingUser">%1$s is not on Telegram yet. Would you like to invite them via SMS?</string>
   <string name="SuggestInvitingUserCommon_one">%2$s is not on Telegram yet. Would you like to invite them via SMS? They may have up to %1$s contact on Telegram.</string>
@@ -2039,6 +2268,8 @@
   <string name="HoldToPreview">Chat Previews</string>
   <string name="BlockUser">Block user</string>
   <string name="BlockSender">Block sender</string>
+  <string name="BlockSenderFromRepliesInfo">Block this sender?</string>
+  <string name="BlockAndDeleteMessages">Block and delete messages</string>
   <string name="MessageLifetimePhoto">If you set a timer, the photo will self-destruct after it was viewed.</string>
   <string name="MessageLifetimeVideo">If you set a timer, the video will self-destruct after it is viewed.</string>
   <string name="NoMembersToShow">No members to show</string>
@@ -2105,6 +2336,8 @@
 
   <string name="QuickReactionEnable">Enable Quick Reaction</string>
   <string name="QuickReactionEnableDesc">Some groups and channels may not allow specific reactions.</string>
+  <string name="DefaultReaction">Default reaction</string>
+  <string name="DefaultReactionDesc">Used as the first quick reaction in chats that allow it.</string>
 
   <string name="ReactionsDisabledDesc">Allow members to react to group messages</string>
   <string name="xReactionsLimit_one">%1$s reaction</string>
@@ -2126,6 +2359,13 @@
   <string name="BigReactionsChannels">Channels</string>
   <string name="BigReactionsNone">None</string>
   <string name="ChannelReactionsAnonymous">Reactions in channels are anonymous</string>
+  <string name="MessageReactions">Message Reactions</string>
+  <string name="StoryReactions">Story Reactions</string>
+  <string name="PollVotes">Poll Votes</string>
+  <string name="ReactionNotificationsInfo">Choose whose reactions and votes you receive notifications about.</string>
+  <string name="ReactionNotificationsPreview">Show Reaction in Notifications</string>
+
+  <string name="NotificationExceptionsInfo">These chats override the notification settings above.</string>
 
   <string name="UserRestrictions">User Permissions</string>
   <string name="GroupRestrictions">Group Permissions</string>
@@ -3029,6 +3269,9 @@
   <string name="LeaveCreatorHintGroup">Warning: you might not be able to return to this group unless added by another member</string>
   <string name="LeaveReturnPublicLinkHintChannel">You will be able to return to this channel by its public link</string>
   <string name="LeaveReturnPublicLinkHintGroup">You will be able to return to this group by its public link</string>
+  <string name="LeaveFutureOwnerChannel">Unless you return within 7 days, %1$s will become the owner of this channel</string>
+  <string name="LeaveFutureOwnerGroup">Unless you return within 7 days, %1$s will become the owner of this group</string>
+  <string name="LeaveFutureOwnerBasicGroup">%1$s will become the owner of this group when you leave</string>
   <string name="DeleteUserChatConfirm">Are you sure you want to delete the chat with %1$s? This action cannot be undone.</string>
   <string name="DeleteAndStopBotConfirm">Are you sure you want to block %1$s and delete the chat with it? This action cannot be undone.</string>
   <string name="DeleteSavedMessagesConfirm">Are you sure you want to delete all **Saved Messages**? This action cannot be undone.</string>
@@ -3756,6 +3999,11 @@
 
   <string name="StopPollWarn">If you stop this poll now, nobody will be able to vote in it anymore.\n\nThis action cannot be undone.</string>
   <string name="StopQuizWarn">If you stop this quiz now, nobody will be able to participate in it anymore.\n\nThis action cannot be undone.</string>
+  <string name="RemovePollOption">Remove an option</string>
+  <string name="RemovePollOptionConfirm">Remove %1$s from the poll? Votes for this option will be discarded.</string>
+  <string name="AddPollOption">Add an option</string>
+  <string name="AddPollOptionHint">Option</string>
+  <string name="AddPollOptionDescription">An option can be up to 100 characters long.</string>
 
   <string name="ViewPollResults">View Results</string>
   <string name="ViewQuizResults">View Results</string>
@@ -4990,6 +5238,10 @@
   <string name="InviteLinkRequestsHintChannel">Some [additional links](%1$s) are set up to generate requests to join your channel.</string>
   <string name="AreYouSureAcceptJoinRequest">Are you sure you want to invite %1$s to %2$s?</string>
   <string name="AreYouSureDeclineJoinRequest">Are you sure you want to decline the request from %1$s?</string>
+  <string name="InviteLinkActionAcceptAll">Add Everyone</string>
+  <string name="InviteLinkActionDeclineAll">Decline All Requests</string>
+  <string name="AreYouSureAcceptAllJoinRequests">Are you sure you want to invite everyone to %1$s?</string>
+  <string name="AreYouSureDeclineAllJoinRequests">Are you sure you want to decline every pending request in %1$s?</string>
 
   <string name="xActiveLinks_one">%1$s active link</string>
   <string name="xActiveLinks_other">%1$s active links</string>
@@ -5009,6 +5261,10 @@
   <string name="ChannelTtlOff">Off</string>
   <string name="ChannelTtlDisabled">Choose a period of time after which posts will be automatically deleted for subscribers of the channel.</string>
   <string name="ChannelTtlEnabled">Automatically delete new posts after %1$s for subscribers of the channel.</string>
+  <string name="ChatTtlDefault">Set as default for new chats</string>
+  <string name="ChatTtlDefaultHint">Chats you open later will start with the same auto-delete period.</string>
+  <string name="ChannelAutoTranslation">Automatic Translation</string>
+  <string name="ChannelAutoTranslationHint">Subscribers see each post translated into their own language.</string>
 
   <string name="ChatBackgroundPreview">Chat Wallpaper Preview</string>
   <string name="ChatBackgroundApply">Apply Chat Wallpaper</string>
@@ -5171,6 +5427,7 @@
   <string name="SponsoredInfoText">Unlike other apps, Telegram never uses your private data to target ads. Sponsored messages on Telegram are based solely on the topic of the public channels in which they are shown. This means that no user data is mined or analyzed to display ads, and every user viewing a channel on Telegram sees the same sponsored messages.\n\nUnlike other apps, Telegram doesn\'t track whether you tapped on a sponsored message and doesn\'t profile you based on your activity. We also prevent external links in sponsored messages to ensure that third parties can’t spy on our users. We believe that everyone has the right to privacy, and technological platforms should respect that.\n\nTelegram offers a free and unlimited service to hundreds of millions of users, which involves significant server and traffic costs. In order to remain independent and stay true to its values, Telegram developed a paid tool to promote messages with user privacy in mind. We welcome responsible advertisers at:</string>
   <string name="SponsoredInfoText2">Sponsored Messages are currently in test mode. Once they are fully launched and allow Telegram to cover its basic costs, we will start sharing ad revenue with the owners of public channels in which sponsored messages are displayed.\n\nOnline ads should no longer be synonymous with abuse of user privacy. Let us redefine how a tech company should operate – together.</string>
   <string name="SponsoredInfoAction">Learn More</string>
+  <string name="SponsoredMessagesSetting">Show sponsored messages</string>
 
   <string name="NoFilePicker">Application to browse files not found</string>
   <string name="OpenEmbed">Preview external links</string>
@@ -5210,6 +5467,8 @@
   <string name="SessionAcceptsCalls">Calls</string>
 
   <string name="SessionAccepts">What can be received on this device?</string>
+  <string name="SessionConfirm">Confirm session</string>
+  <string name="SessionConfirmQuestion">Did you just try to log in from this device?</string>
   <string name="SessionSecretChats">Secret Chats</string>
   <string name="SessionCalls">Incoming Calls</string>
 
@@ -5440,6 +5699,8 @@
   <string name="TranslateTryAgain">Try again later</string>
   <string name="TranslateWait">Please wait…</string>
   <string name="TranslateOriginal">Original message</string>
+  <string name="TranslateInChat">Translate messages</string>
+  <string name="DoNotTranslateInChat">Do not translate messages</string>
   <string name="DoNotTranslate">Do not translate</string>
   <string name="ApplicationLanguage">Application language</string>
   <string name="SelectedLanguages">Selected languages</string>
@@ -5583,6 +5844,8 @@
   <string name="FolderIncludedChatsInfo">Choose chats or types of chats that will appear in this folder.</string>
   <string name="FolderExcludedChats">Excluded Chats</string>
   <string name="FolderExcludedChatsInfo">Choose chats or types of chats that will **not** appear in this folder.</string>
+  <string name="FolderChatCount_one">%1$d chat will be added to this folder</string>
+  <string name="FolderChatCount_other">%1$d chats will be added to this folder</string>
   <string name="FolderActionIncludeChats">Add Chats to Included</string>
   <string name="FolderActionExcludeChats">Add Chats to Excluded</string>
   <string name="FolderName">Folder name</string>
@@ -5838,6 +6101,8 @@
   <string name="xOfYChatsSelected3_other">%1$s/%2$s chats selected</string>
   <string name="ThisChatCantBeShared">This chat can’t be shared</string>
   <string name="ArchiveAsFolder">Archive as Folder</string>
+  <string name="ChatFolderTags">Folder tags</string>
+  <string name="ChatFolderTagsInfo">Chats with unread messages in other folders are shown as tags, so you can jump to them without opening the folder.</string>
   <string name="HoldAndDragToReorder">Hold and drag to reorder</string>
 
   <string name="SlowFileAccess">Slow file access. Message will be sent after reading the files</string>
@@ -5856,6 +6121,8 @@
   <string name="UsernamesChannelHint">Drag and drop links to change order of their appearance on the channel profile screen.</string>
   <string name="UsernamesChat">Chat Links</string>
   <string name="UsernamesChatHint">Drag and drop links to change order of their appearance on the chat profile screen.</string>
+  <string name="DisableAllLinks">Disable all links</string>
+  <string name="DisableAllLinksConfirm">Disable all links to %1$s? People will no longer be able to find this chat through these links.</string>
 
   <string name="PrimaryUsername">Primary username</string>
   <string name="PrimaryLink">Primary link</string>
